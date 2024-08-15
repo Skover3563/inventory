@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Text
-import androidx.compose.ui.text.input.KeyboardType.Companion.Text
 
 
 class MainActivity : ComponentActivity() {
@@ -17,7 +16,7 @@ class MainActivity : ComponentActivity() {
                 Row {
 
                 }
-                Text("1")
+                Text("test")
                 Text("2")
                 Text("3")
 
@@ -32,10 +31,7 @@ class MainActivity : ComponentActivity() {
                     Text("9")
                 }
 
-
             }
-
-
         }
     }
 }
