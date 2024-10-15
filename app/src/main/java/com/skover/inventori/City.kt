@@ -1,5 +1,6 @@
 package com.skover.inventori
 
+
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -15,17 +16,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
-@Composable
-fun CityiScreen(navController: NavHostController) {
+const val CITY_SCREEN = "City screen"
 
+@Composable
+fun CityScreen(navController: NavHostController) {
     var city by rememberSaveable { mutableStateOf("") }
     var result by rememberSaveable { mutableStateOf("") }
-    Column (modifier = Modifier
-        .fillMaxSize()
-        .padding(16.dp)){
-        Text(text = "Введите ваш Город")
-        TextField(value = city, onValueChange = {city = it})
-        Button(onClick = { result = "Ваш город - $city" }) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        Text(text = "Введите вашу страну")
+        TextField(value = city, onValueChange = { city = it })
+        Button(onClick = { result = "Ваша страна - $city" }) {
             Text(text = "Вывести результат")
         }
         Text(text = result)
