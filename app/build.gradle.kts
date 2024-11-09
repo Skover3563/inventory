@@ -1,22 +1,18 @@
-fun ksp(compiler: Any) {
-
-}
 
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("com.google.devtools.ksp") version "1.5.30-1.0.0"
-
+    id("com.google.devtools.ksp") version "1.9.20-1.0.14"
 }
 
 android {
     namespace = "com.skover.inventori"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.skover.inventori"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 

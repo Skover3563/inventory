@@ -40,38 +40,34 @@ fun MyApp() {
     val currentBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = currentBackStackEntry?.destination?.route
     val viewModel: ItemViewModel = viewModel()
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text(text = currentRoute ?: "", color = Color.White) },
-                navigationIcon = {
-                    if (navController.previousBackStackEntry != null) {
-                        IconButton(onClick = { navController.popBackStack() }) {
-                            Icon(
-                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                                contentDescription = null, tint = Color.White
-                            )
-                        }
+    Scaffold(topBar = {
+        TopAppBar(title = { Text(text = currentRoute ?: "", color = Color.White) },
+            navigationIcon = {
+                if (navController.previousBackStackEntry != null) {
+                    IconButton(onClick = { navController.popBackStack() }) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = null,
+                            tint = Color.White
+                        )
                     }
-                },
-                colors = topAppBarColors(containerColor = MaterialTheme.colorScheme.primary)
-            )
-        },
-        floatingActionButton = {
-            if (currentRoute == INVENTORY_SCREEN)
-                FloatingActionButton({
-                    navController.navigate(ADD_EDIT_ITEM_SCREEN)
-                }) { Icon(painter = painterResource(R.drawable.add), contentDescription = null) }
-            else if (currentRoute == ITEM_DETAILS_SCREEN)
-                FloatingActionButton({
-                    navController.navigate(ADD_EDIT_ITEM_SCREEN)
-                }) { Icon(painter = painterResource(R.drawable.edit), contentDescription = null) }
+                }
+            },
+            colors = topAppBarColors(containerColor = MaterialTheme.colorScheme.primary)
+        )
+    }, floatingActionButton = {
+        if (currentRoute == INVENTORY_SCREEN) FloatingActionButton({
+            navController.navigate(ADD_EDIT_ITEM_SCREEN)
+        }) { Icon(painter = painterResource(R.drawable.add), contentDescription = null) }
+        else if (currentRoute == ITEM_DETAILS_SCREEN) FloatingActionButton({
+            navController.navigate(ADD_EDIT_ITEM_SCREEN)
+        }) { Icon(painter = painterResource(R.drawable.edit), contentDescription = null) }
 
-        })
-    { padding ->
+    }) { padding ->
 
         NavHost(
-            navController = navController, startDestination = INVENTORY_SCREEN,
+            navController = navController,
+            startDestination = INVENTORY_SCREEN,
             modifier = Modifier.padding(padding)
         ) {
 
