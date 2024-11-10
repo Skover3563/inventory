@@ -44,7 +44,7 @@ fun InventoryScreen(navController: NavHostController, viewModel: ItemViewModel) 
                 text = "ITEM", Modifier
                     .weight(2F)
                     .align(Alignment.CenterVertically)
-                    .padding(start = 8.dp), textAlign = TextAlign.Center
+                    .padding(start = 8.dp)
             )
             Text(
                 text = "PRICE", Modifier
@@ -106,10 +106,10 @@ fun ItemView(item: Item, onClick: (Item) -> Unit) {
 @Composable
 fun AddEditItemScreen(navController: NavHostController, viewModel: ItemViewModel) {
     var name by rememberSaveable { mutableStateOf(viewModel.selectedItem?.name ?: "") }
-    var price by rememberSaveable { mutableStateOf(viewModel.selectedItem?.price.toString() ?: "") }
+    var price by rememberSaveable { mutableStateOf(viewModel.selectedItem?.price?.toString() ?: "") }
     var quantity by rememberSaveable {
         mutableStateOf(
-            viewModel.selectedItem?.quantity.toString() ?: ""
+            viewModel.selectedItem?.quantity?.toString() ?: ""
         )
     }
     Column(modifier = Modifier.padding(16.dp)) {
